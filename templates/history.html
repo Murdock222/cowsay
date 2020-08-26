@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="moo">
+<p class="link_area"><a href="{% url 'home' %}">Click here</a> to go back to the moo factory.</p>
+
+<h2> Here are the 10 most recent Moos </h2>
+
+{% for moo_index, moo_text in moos%}
+    <p>{{moo_index}}. {{moo_text}}</p>  
+{% endfor%}
+
+</div>
+
+{% endblock %}

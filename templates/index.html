@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+    <div class="moo"z>
+        {% include "moo_form.html"%}
+    <p class="link_area">Curious what's been moo'd before?  <a href="{% url 'history' %}">Click here</a> to be directed to a list of the last 10 moo's. </p>
+    </div>
+    <hr>
+    {% if cow_speaking %}
+        <div class="cow_area">
+            <pre>{{cow_speaking}}</pre>
+        </div>
+    {% endif %}
+{% endblock%}
