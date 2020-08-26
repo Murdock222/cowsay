@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from moo.models import MooText
+from homepage.models import MooText
 
-from moo.forms import MooForm
-from moo import get_cow
+from homepage.forms import MooForm
+from homepage import get_cow
 
 
 def index(request):
