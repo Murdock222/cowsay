@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.urls import urlpatterns as moo_urls
+from homepage.views import index_view, history_view
 
 urlpatterns = [
+    path('history/', history_view, name="history"),
+    path('', index_view, name="homepage"),
     path('admin/', admin.site.urls),
 ]
-
-urlpatterns += moo_urls
