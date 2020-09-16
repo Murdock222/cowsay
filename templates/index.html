@@ -1,13 +1,14 @@
 {% extends 'base.html'%}
 {% load static %}
-
+    <div>
+        <pre style="color: red; font-weight: bold; font-size: 30px;">{{ cows_data }}</pre>
+    </div>
 {% block content%}
     <div>
         {% include "moo_form.html"%}
     <p>what's been said before?  <a href="{% url 'history' %}">Click Here</a> A list of the last 10 moo's. </p>
     </div>
-    <hr>
-    <pre>{{sub_process_data }}</pre>
+
     {% for moos in all_moo %}
         <div>
             <pre>{{cow_speaking}}</pre>

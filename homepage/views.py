@@ -4,19 +4,19 @@ from homepage.forms import MooForm
 import subprocess
 
 def index_view(request):
-    form = MooForm
+    moo = ""
     if request.method == "POST":
         form = MooForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            cows_data = data.get('MooText')
-            sub_process = subprocess.run(['cowsay', cows_data],capture_output=True, text=True)
-            print(sub_process.stdout)
-            MooText.objects.create(MooText= data.get('MooText'))
-            context= {'form':form, 'sub_process_data':sub_process.stdout}
+            cows_data = data.get('text')
+            MooText.objects.create(text=cows_data)
+            moo = subprocess.check_output(["cowsay", cows_data], text=True)
 
-    context = {'form': form}
-    return render(request, 'index.html', context)
+
+    form = MooForm()
+    return render(request, 'index.html', {"form": form, "moo":moo})
+
 
 
 def history_view(request):
